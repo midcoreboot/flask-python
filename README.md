@@ -11,3 +11,5 @@ Starta med:
     export FLASK_APP=main.py
     export FLASK_DEBUG=1
     flask run
+
+Bra guide till git: https://rogerdudler.github.io/git-guide/
