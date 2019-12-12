@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <form class="cont" action="" method="POST" novalidate>
+    {{ form.hidden_tag() }}
+    <p>
+
+    <p>
+    {% for subfield in form.field %}
+    <div class="ImgPick">
+       {{ subfield }}
+       {% set class = 'img' + subfield.data %}
+       {{ subfield.label }}
+       <br>
+       <img class="{{ class }}" src="{{ url_for('static', filename='images/{}.jpg'.format(subfield.data))}}"></img>
+    </div>
+    {% endfor %}
+    </p>
+
+
+    <div class="lables">
+    {{ form.textU.label}}<br>
+    {{ form.textU }}<br>
+    {{ form.textD.label }}<br>
+    {{ form.textD }}<br>
+    {{ form.fontSize.label }}<br>
+    {{ form.fontSize }}<br>
+    <p id="output"></p>
+    <p> {{ form.submit() }}</p>
+    </div>
+  </form>
+
+
+  <style>
+    .cont {
+      width: fit-content;
+      height: fit-content;
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translate(-50%,0);
+    }
+    .img1 {
+      width: 200px;
+      height: 200px;
+    }
+    .img2 {
+      width: 200px;
+      height: 200px;
+    }
+    .ImgPick{
+      display: inline-block;
+      width: fit-content;
+      height: fit-content;
+    }
+    .lables{
+      width: fit-content;
+      margin: 0px auto;
+      height: fit-content;
+    }
+    </style>
+
+{% endblock %}

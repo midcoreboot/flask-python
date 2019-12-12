@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+  <div class="cont" id="cont">
+    <img  class="image" id="img" src="{{ url_for('static', filename=imgpath)}}">
+    <div class="text1" id="conttext" >{{ text1 }}</div>
+  </div>
+  <form method="post">
+    {% for field in form %}
+       {{ field }}
+    {% endfor %}
+    </form>
+
+
+
+  <script type="text/javascript">
+   var el;
+   var left1;
+   var top1;
+   window.onload = function() {
+   el = document.getElementById("conttext");
+   console.log(el);
+   drag();
+  }
+
+
+  function drag() {
+    console.log("el: " + el);
+    el.onmousedown = dragMouseDown;
+  }
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    document.onmousemove = elementDrag;
+  }
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    el.style.top = (el.offsetTop - pos2) + "px";
+    el.style.left = (el.offsetLeft - pos1) + "px";
+    left1 = el.style.left;
+    top1 = el.style.top;
+    var x1 = left1;
+    var y1 = top1;
+    x1 = x1.slice(0, left1.length - 2);
+    y1 = y1.slice(0, top1.length - 2);
+    console.log("x1: " + x1 + "; y1: " + y1);
+    document.getElementById("left1").value = x1;
+    document.getElementById("top1").value = y1;
+  }
+  function closeDragElement() {
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+
+</script>
+  <style>
+    body {
+      background-color: rgb(150,150,150);
+    }
+    .text1 {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      height: fit-content;
+      width: fit-content;
+      user-select: none;
+      touch-action: none;
+      font-size: {{ fontsize }}px;
+    }
+    .text1:hover {
+      cursor: pointer;
+    }
+    .cont {
+      left: 50%;
+      top: 5%;
+      width: 700px;
+      position: absolute;
+      transform: translate(-50%,0);
+      display: flex;
+      touch-action: none;
+    }
+    .image {
+      width: 100%;
+      position: relative;
+    }
+  </style>
+{% endblock %}

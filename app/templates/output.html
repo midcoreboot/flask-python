@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <img src="{{ url_for('static', filename='memes/{}.jpg'.format(uid)) }}" class="imageDone"></img>
+
+  <style>
+    .imageDone {
+      left: 50%;
+      top: 10%;
+      position: absolute;
+      transform: translate(-50%,0);
+      height: 500px;
+      width: 500px;
+    }
+  </style>
+
+  <a href="{{ url_for('static', filename='memes/{}.jpg'.format(id)) }}" download>Ladda ner bilden</a>
+{% endblock %}
