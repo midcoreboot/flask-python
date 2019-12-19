@@ -1,0 +1,21 @@
+.bar {
+  color: rgb(200,200,200);
+  font-size: 52px;
+  background-color: rgb(50,50,50);
+  font-family: 'Bebas Neue', cursive;
+  width: 100%;
+}
+.aLink {
+  background-color: rgb(50,50,50);
+  color: rgb(200,200,200);
+  text-decoration:none;
+  height: 100%;
+  margin: 12px;
+}
+.aLink:hover {
+  background-color: rgb(100,100,100);
+  color: rgb(200,200,240);
+}
+body {
+  margin: 0px;
+}

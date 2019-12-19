@@ -103,7 +103,7 @@
   <style>
     @font-face {
       font-family: myFont;
-      src: url(../../fonts/Roboto-Regular.ttf); //NEED FIXING
+    src: url({{ url_for('static', filename='fonts/Roboto-Regular.ttf') }});
     }
 
     body {
@@ -118,6 +118,7 @@
       user-select: none;
       touch-action: none;
       font-family: myFont;
+      line-height: {{ fontsize }}px;
       font-size: {{ fontsize }}px;
     }
     .text1:hover {
@@ -127,10 +128,12 @@
       position: absolute;
       left: 0px;
       top: 0px;
-      height: fit-content;
       width: fit-content;
       user-select: none;
       touch-action: none;
+      font-family: myFont;
+      height: {{ fontsize }}px;
+      line-height: {{ fontsize }}px;
       font-size: {{ fontsize }}px;
     }
     .text2:hover {
@@ -139,7 +142,7 @@
 
     .cont {
       left: 50%;
-      top: 5%;
+      top: 20%;
       width: 700px;
       position: absolute;
       transform: translate(-50%,0);
