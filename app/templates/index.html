@@ -32,7 +32,19 @@
     </div>
   </form>
 
+  <script>
+    $(document).ready(function() {
+      $('#useD').prop('checked', true);
 
+      $('#useD').change(function() {
+        if($(this).is(":checked")) {
+          $('#textD').prop("disabled", false);
+        } else {
+          $('#textD').prop("disabled", true);
+        }
+      });
+    });
+  </script>
   <style>
     .cont {
       width: fit-content;
@@ -61,15 +73,5 @@
       height: fit-content;
     }
     </style>
-    <script>
-    var check = document.getElementById("useD");
-    var sec = document.getElementById("textD");
-      if(check.checked == "true") {
-        sec.disabled = false;
-      } else {
-        sec.disabled = true;
-      }
-
-    </script>
 
 {% endblock %}
