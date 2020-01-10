@@ -46,6 +46,59 @@
     });
   </script>
   <style>
+    @font-face {
+      font-family: myFont;
+    src: url({{ url_for('static', filename='fonts/Roboto-Regular.ttf') }});
+    }
+    input {
+      font-size: 24px;
+    }
+    .lables {
+
+      font-family: myFont;
+      font-size: 24px;
+    }
+    input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#field-0 {
+  width: 20px;
+  font-size: 24px;
+  height: 20px;
+}
+#field-1 {
+  font-size: 24px;
+  width: 20px;
+  height: 20px;
+}
+#useD {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 15px;
+    height: 15px;
+  }
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
     .cont {
       width: fit-content;
       height: fit-content;
@@ -66,6 +119,8 @@
       display: inline-block;
       width: fit-content;
       height: fit-content;
+      font-size: 24px;
+      font-family: myFont;
     }
     .lables{
       width: fit-content;
