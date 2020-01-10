@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired
 
 class ChooseForm(FlaskForm):
     textU = StringField('Text for upper row:', validators=[DataRequired()])
-    textD = StringField('Text for bottom row', validators=[DataRequired()])
+    textD = StringField('Text for bottom row')
     useD = BooleanField('Use second text')
     fontSize = StringField('Font size')
     field = RadioField('Choose image',

@@ -1,9 +1,9 @@
 import sys
-from PIL import Image, ImageFont, ImageDrawW
+import os
 from flask import render_template, flash, redirect, url_for, request, send_file
 from app import app
 from app.forms import ChooseForm, PreviewForm
-import os
+from PIL import Image, ImageFont, ImageDraw
 from uuid import uuid4 as uuid
 
 @app.route('/', methods=['GET', 'POST'])
@@ -17,18 +17,22 @@ def index():
         text1 = form.textU.data
         useD = form.useD.data
         text2 = form.textD.data
+        app.logger.debug('test1')
+        app.logger.debug(useD)
         if form.field.data == '1':
-            if useD == "True":
+            if useD == True:
+                app.logger.debug('debug1')
                 return redirect(url_for('preview', filename="1.jpg", fontsize=fontsize, text1=text1, text2=text2, useD=useD))
-            elif useD == "False":
+            elif useD == False:
+                app.logger.debug('debug2')
                 return redirect(url_for('preview', filename="1.jpg", fontsize=fontsize, text1=text1, useD=useD))
 
              # Skicka vidare användaren till lämplig sida.
         elif form.field.data == '2':
-            if useD == "True":
+            if useD == True:
                 app.logger.debug('used=true')
                 return redirect(url_for('preview', filename="2.jpg", fontsize=fontsize, text1=text1, text2=text2, useD=useD))
-            elif useD == "False":
+            elif useD == False:
                 app.logger.debug('used=false')
                 return redirect(url_for('preview', filename="2.jpg", fontsize=fontsize, text1=text1, useD=useD))
         else:
